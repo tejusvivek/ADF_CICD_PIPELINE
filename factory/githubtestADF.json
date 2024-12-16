@@ -1,0 +1,9 @@
+{
+	"name": "githubtestADF",
+	"location": "centralus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "e3419f6f-c011-4715-8705-6da17b3100ef",
+		"tenantId": "12f933b3-3d61-4b19-9a4d-689021de8cc9"
+	}
+}
