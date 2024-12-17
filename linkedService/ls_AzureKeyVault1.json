@@ -1,0 +1,15 @@
+{
+	"name": "ls_AzureKeyVault1",
+	"properties": {
+		"parameters": {
+			"keyVault": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "AzureKeyVault",
+		"typeProperties": {
+			"baseUrl": "@{concat('https://',linkedService().keyVault,'.vault.azure.net')}"
+		}
+	}
+}
