@@ -250,7 +250,21 @@
 				"outputs": [
 					{
 						"referenceName": "sinkDelimitedText1",
-						"type": "DatasetReference"
+						"type": "DatasetReference",
+						"parameters": {
+							"adlsAccountName": {
+								"value": "@pipeline().parameters.adlsAccountName",
+								"type": "Expression"
+							},
+							"adlsSecretName": {
+								"value": "@pipeline().parameters.adlsSecretName",
+								"type": "Expression"
+							},
+							"keyVaultName": {
+								"value": "@pipeline().parameters.keyVaultName",
+								"type": "Expression"
+							}
+						}
 					}
 				]
 			}
@@ -266,6 +280,12 @@
 				"type": "string"
 			},
 			"keyVaultName": {
+				"type": "string"
+			},
+			"adlsAccountName": {
+				"type": "string"
+			},
+			"adlsSecretName": {
 				"type": "string"
 			}
 		},
