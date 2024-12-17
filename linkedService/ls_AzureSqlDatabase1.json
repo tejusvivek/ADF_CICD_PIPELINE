@@ -8,9 +8,6 @@
 			"sqlDbName": {
 				"type": "string"
 			},
-			"sqlUserName": {
-				"type": "string"
-			},
 			"sqlKey": {
 				"type": "string"
 			},
