@@ -7,6 +7,9 @@
 			},
 			"adlsSecretName": {
 				"type": "string"
+			},
+			"keyVaultName": {
+				"type": "string"
 			}
 		},
 		"annotations": [],
@@ -19,7 +22,10 @@
 					"referenceName": "ls_AzureKeyVault1",
 					"type": "LinkedServiceReference",
 					"parameters": {
-						"keyVault": "keyvault-dev12as"
+						"keyVault": {
+							"value": "@linkedService().keyVaultName",
+							"type": "Expression"
+						}
 					}
 				},
 				"secretName": {
