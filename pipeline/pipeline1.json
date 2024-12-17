@@ -226,7 +226,25 @@
 				"inputs": [
 					{
 						"referenceName": "sourceAzureSqlTable1",
-						"type": "DatasetReference"
+						"type": "DatasetReference",
+						"parameters": {
+							"sqlServerName": {
+								"value": "@pipeline().parameters.sqlServerName",
+								"type": "Expression"
+							},
+							"sqlDbName": {
+								"value": "@pipeline().parameters.sqlDbName",
+								"type": "Expression"
+							},
+							"sqlKey": {
+								"value": "@pipeline().parameters.sqlKey",
+								"type": "Expression"
+							},
+							"keyVaultName": {
+								"value": "@pipeline().parameters.keyVaultName",
+								"type": "Expression"
+							}
+						}
 					}
 				],
 				"outputs": [
@@ -237,6 +255,20 @@
 				]
 			}
 		],
+		"parameters": {
+			"sqlServerName": {
+				"type": "string"
+			},
+			"sqlDbName": {
+				"type": "string"
+			},
+			"sqlKey": {
+				"type": "string"
+			},
+			"keyVaultName": {
+				"type": "string"
+			}
+		},
 		"variables": {
 			"aaa": {
 				"type": "String"

@@ -3,7 +3,32 @@
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "ls_AzureDataLakeStorage1",
-			"type": "LinkedServiceReference"
+			"type": "LinkedServiceReference",
+			"parameters": {
+				"adlsAccountName": {
+					"value": "@dataset().adlsAccountName",
+					"type": "Expression"
+				},
+				"adlsSecretName": {
+					"value": "@dataset().adlsSecretName",
+					"type": "Expression"
+				},
+				"keyVaultName": {
+					"value": "@dataset().keyVaultName",
+					"type": "Expression"
+				}
+			}
+		},
+		"parameters": {
+			"adlsAccountName": {
+				"type": "string"
+			},
+			"adlsSecretName": {
+				"type": "string"
+			},
+			"keyVaultName": {
+				"type": "string"
+			}
 		},
 		"annotations": [],
 		"type": "DelimitedText",

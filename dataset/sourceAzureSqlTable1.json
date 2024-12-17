@@ -3,7 +3,39 @@
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "ls_AzureSqlDatabase1",
-			"type": "LinkedServiceReference"
+			"type": "LinkedServiceReference",
+			"parameters": {
+				"sqlServerName": {
+					"value": "@dataset().sqlServerName",
+					"type": "Expression"
+				},
+				"sqlDbName": {
+					"value": "@dataset().sqlDbName",
+					"type": "Expression"
+				},
+				"sqlKey": {
+					"value": "@dataset().sqlKey",
+					"type": "Expression"
+				},
+				"keyVaultName": {
+					"value": "@dataset().keyVaultName",
+					"type": "Expression"
+				}
+			}
+		},
+		"parameters": {
+			"sqlServerName": {
+				"type": "string"
+			},
+			"sqlDbName": {
+				"type": "string"
+			},
+			"sqlKey": {
+				"type": "string"
+			},
+			"keyVaultName": {
+				"type": "string"
+			}
 		},
 		"annotations": [],
 		"type": "AzureSqlTable",
