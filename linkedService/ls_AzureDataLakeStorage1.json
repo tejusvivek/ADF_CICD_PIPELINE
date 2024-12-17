@@ -1,12 +1,33 @@
 {
 	"name": "ls_AzureDataLakeStorage1",
-	"type": "Microsoft.DataFactory/factories/linkedservices",
 	"properties": {
+		"parameters": {
+			"adlsAccountName": {
+				"type": "string"
+			},
+			"adlsSecretName": {
+				"type": "string"
+			}
+		},
 		"annotations": [],
 		"type": "AzureBlobFS",
 		"typeProperties": {
-			"url": "https://adls42as.dfs.core.windows.net/",
-			"encryptedCredential": "ew0KICAiVmVyc2lvbiI6ICIyMDE3LTExLTMwIiwNCiAgIlByb3RlY3Rpb25Nb2RlIjogIktleSIsDQogICJTZWNyZXRDb250ZW50VHlwZSI6ICJQbGFpbnRleHQiLA0KICAiQ3JlZGVudGlhbElkIjogIkRBVEFGQUNUT1JZQEQ4RDFCNjYwLTU5ODUtNDRBOS05MTJCLUM4RDY0OTEzQTBDM185Zjg1MDI2My04ZWJiLTRkMmUtODY1MC04NTZhYjc5ZTQwNDEiDQp9"
+			"url": "@{concat('https://',linkedService().adlsAccountName,'.dfs.core.windows.net/')}",
+			"accountKey": {
+				"type": "AzureKeyVaultSecret",
+				"store": {
+					"referenceName": "ls_AzureKeyVault1",
+					"type": "LinkedServiceReference",
+					"parameters": {
+						"keyVault": "keyvault-dev12as"
+					}
+				},
+				"secretName": {
+					"value": "@linkedService().adlsSecretName",
+					"type": "Expression"
+				}
+			}
 		}
-	}
+	},
+	"type": "Microsoft.DataFactory/factories/linkedservices"
 }
